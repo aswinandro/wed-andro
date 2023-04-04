@@ -1,0 +1,36 @@
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+  
+  .card-content {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+  
+  h4 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+  
+  p {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  

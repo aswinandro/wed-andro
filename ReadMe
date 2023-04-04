@@ -1,0 +1,20 @@
+API - 
+
+bcrypt
+express
+mysql
+nodemon
+jsonwebtoken
+cookie-parser
+multer
+
+
+Client - 
+react-quill
+react-router
+axios
+
+
+npm i npm react-google-maps  --legacy-peer-deps --legacy-peer-deps
+
+api location - key - AIzaSyBNAqOKjt3_5fYkmZ0q4Fye-kpai7fJeQE
