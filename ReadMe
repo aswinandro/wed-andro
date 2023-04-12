@@ -1,4 +1,4 @@
-API - 
+API -
 
 bcrypt
 express
@@ -8,13 +8,49 @@ jsonwebtoken
 cookie-parser
 multer
 
-
-Client - 
+Client -
 react-quill
 react-router
 axios
+react-google-autocomplete
 
-
-npm i npm react-google-maps  --legacy-peer-deps --legacy-peer-deps
+npm i npm react-google-maps --legacy-peer-deps --legacy-peer-deps
 
 api location - key - AIzaSyBNAqOKjt3_5fYkmZ0q4Fye-kpai7fJeQE
+
+AIzaSyAZF74sub1jRoA54JdbS0wuSP7l87T3UYg
+
+@googlemaps/google-maps-services-js
+
+@react-google-maps/api
+
+google calendar =
+client id
+363250065701-57mtn2ujac56okpm3bedkrv7d8pdvmes.apps.googleusercontent.com
+
+MineCodee
+
+<iframe 
+  width="300" 
+  height="170" 
+  frameborder="0" 
+  scrolling="no" 
+  marginheight="0" 
+  marginwidth="0" 
+  src="https://maps.google.com/maps?q='+YOUR_LAT+','+YOUR_LON+'&hl=es&z=14&amp;output=embed"
+ >
+ </iframe>
+ <br />
+ <small>
+   <a 
+    href="https://maps.google.com/maps?q='+data.lat+','+data.lon+'&hl=es;z=14&amp;output=embed" 
+    style="color:#0000FF;text-align:left" 
+    target="_blank"
+   >
+     See map bigger
+   </a>
+ </small>
+
+You should be able to do something like this:
+
+http://maps.google.com/maps?q=24.197611,120.780512
