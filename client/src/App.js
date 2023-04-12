@@ -6,82 +6,81 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-import Register from "./pages/Register"
-import Write from "./pages/Write"
-import Single from "./pages/Single"
-import Login from "./pages/Login"
-import Home from "./pages/Home"
-import { QRCode } from "./pages/QRCode";
-import Navbar from "./components/Navbar"
-import FooterAnt from "./components/Footer"
+import Register from "./pages/Register";
+import Write from "./pages/Write";
+import Single from "./pages/Single";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+// import { QRCode } from "./pages/QRCode";
+import Navbar from "./components/Navbar";
+import FooterAnt from "./components/Footer";
 import RSVPQrCode from "./pages/RSVPQrCode";
-// import "./style.scss"
+import { CssBaseline } from "@material-ui/core";
 
 const Layout = () => {
-  return(
-  <>
-    <Navbar/>
-    <Outlet />
-    <FooterAnt />
-  </>
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+      <FooterAnt />
+    </>
   );
-  };
-  
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout/>,
+    element: <Layout />,
     children: [
       {
         path: "/",
-        element: <Home/>
+        element: <Home />,
       },
       {
         path: "/post/:id",
-        element: <Single/>,
+        element: <Single />,
       },
       {
         path: "/post/:id/getqr",
-        element: <RSVPQrCode/>,
+        element: <RSVPQrCode />,
       },
       {
         path: "/write",
-        element: <Write/>,
+        element: <Write />,
       },
-    ]
+    ],
   },
   {
     path: "/register",
-    element: <Register/>,
+    element: <Register />,
   },
   {
     path: "/login",
-    element: <Login/>,
+    element: <Login />,
   },
   {
     path: "/write",
-    element: <Write/>,
+    element: <Write />,
   },
   {
     path: "/single",
-    element: <Single/>,
+    element: <Single />,
   },
-  {
-    path: "/qrcode",
-    element: <QRCode/>,
-  },
+  // {
+  //   path: "/qrcode",
+  //   element: <QRCode />,
+  // },
 ]);
 
 function App() {
   return (
     <div className="app">
-      <div className="container"> 
-        <RouterProvider router={router} ></RouterProvider>
+      <div className="container">
+        <RouterProvider router={router}></RouterProvider>
       </div>
+      <CssBaseline />
     </div>
   );
 }
-
 
 export default App;

@@ -1,0 +1,43 @@
+.blur {
+  background: url("../assets/a.svg");
+  background-size: cover;
+  background-repeat: repeat-y;
+  -webkit-filter: blur(13px);
+  -moz-filter: blur(13px);
+  -o-filter: blur(13px);
+  -ms-filter: blur(13px);
+  filter: blur(5px);
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.mainHome {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background: transparent;
+}
+
+.home {
+  padding-top: 1%;
+  background: transparent;
+}
+
+.posts {
+  background: transparent;
+}
+
+.post {
+  background: transparent;
+}
+
+.content {
+  background: transparent;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
