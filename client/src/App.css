@@ -3,6 +3,10 @@
     'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
 } */
+/* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities; */
 
 @keyframes fadein {
   from {

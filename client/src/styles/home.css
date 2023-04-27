@@ -1,3 +1,7 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 .blur {
   background: url("../assets/a.svg");
   background-size: cover;
@@ -14,13 +18,13 @@
 }
 
 .mainHome {
-  padding-top: 1%;
+  padding-top: 0.2%;
   padding-bottom: 1%;
   background: transparent;
 }
 
 .home {
-  padding-top: 1%;
+  /* padding-top: 1%; */
   background: transparent;
 }
 
@@ -38,6 +42,51 @@
 
 .footer {
   position: relative;
+  opacity: 90%;
   bottom: 0;
   width: 100%;
+  padding-top: 40vh;
+  text-align: center;
 }
+
+.myVideo {
+  padding-left: 0.1%;
+  height: 100%;
+  width: 100%;
+  opacity: 50%;
+  object-fit: cover;
+  -webkit-filter: blur(1px) contrast(156%) grayscale(34%) saturate(101%)
+    sepia(19%);
+  filter: blur(1px) contrast(156%) grayscale(34%) saturate(101%) sepia(19%);
+}
+
+.containerMat {
+  /* padding-top: 1%; */
+  padding-left: 0.3%;
+}
+
+.timeline {
+  background: transparent;
+}
+
+.overlay {
+  position: absolute;
+  /* top: calc(100vh - 80%); */
+  top: 20vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timeline {
+  padding-top: 10%;
+  padding-left: 3%;
+}
+
+/* @media (min-width: 700px) {
+  .overlay {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+} */

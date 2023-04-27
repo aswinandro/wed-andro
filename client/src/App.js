@@ -58,14 +58,6 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  {
-    path: "/write",
-    element: <Write />,
-  },
-  {
-    path: "/single",
-    element: <Single />,
-  },
   // {
   //   path: "/qrcode",
   //   element: <QRCode />,
@@ -75,9 +67,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="app">
-      <div className="container">
-        <RouterProvider router={router}></RouterProvider>
-      </div>
+      <RouterProvider router={router}></RouterProvider>
       <CssBaseline />
     </div>
   );

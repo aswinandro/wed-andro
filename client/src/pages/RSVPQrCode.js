@@ -5,6 +5,7 @@ import axios from "axios";
 import moment from "moment";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
+import "../styles/single.css";
 
 function RSVPQrCode() {
   const location = useLocation();
@@ -94,20 +95,21 @@ function RSVPQrCode() {
   // Render QR code with RSVP data
   return (
     <div>
-      <Box sx={{ flexGrow: 1, paddingTop: "1%", paddingLeft: "1%" }}>
+      <div className="blur"></div>
+      <Box sx={{ flexGrow: 1, paddingTop: "5%", paddingLeft: "1%" }}>
         <Grid container spacing={2}>
-          <Grid xs={8}>
+          <Grid xs={4}></Grid>
+          <Grid xs={4}>
             {rsvpData && (
               <>
                 <QRCode value={JSON.stringify(rsvpData)} />
-                <p>Simple Invitation Details</p>
-                <p>{rsvpData.title}</p>
+                <p>Scan to See Details</p>
               </>
             )}
           </Grid>
-          <Grid xs={4}>xs=4</Grid>
-          <Grid xs={4}>xs=4</Grid>
-          <Grid xs={8}>
+          <Grid xs={4}></Grid>
+          <Grid xs={4}></Grid>
+          <Grid xs={4}>
             {rsvpData && (
               <>
                 <QRCode
@@ -124,22 +126,22 @@ function RSVPQrCode() {
                     rsvpData.lat + "," + rsvpData.lng
                   )}`}
                 />
-                <p>Scan Google Calendar</p>
-                <div>
+                <p>QR Google Calendar</p>
+                <div className="qrButton">
                   <input
                     type="button"
                     className="download-btn"
                     value="Download"
                     onClick={downloadQRCode}
                   />
+                  <button onClick={handleGoogleCalendarClick}>
+                    Add to Google Calendar
+                  </button>
                 </div>
               </>
             )}
           </Grid>
           <Grid xs={4}>
-            <button onClick={handleGoogleCalendarClick}>
-              Add to Google Calendar
-            </button>
             <button onClick={handleAppleCalendarClick}>
               Add to Apple Calendar
             </button>

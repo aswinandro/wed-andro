@@ -1,25 +1,21 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useLocation } from "react-router-dom";
 import moment from "moment";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { Button, FormLabel } from "@material-ui/core";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
+import SendIcon from "@mui/icons-material/Send";
 import Input from "@mui/material/Input";
-import FilledInput from "@mui/material/FilledInput";
-import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
-import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
-import TextField from "@mui/material/TextField";
 import Snackbar from "@material-ui/core/Snackbar";
 import { Alert } from "@mui/material";
-
-// import "../style.scss"
+import Grid from "@mui/material/Unstable_Grid2";
+import "../styles/write.css";
+import "../styles/home.css";
 
 const Write = () => {
   const state = useLocation().state;
@@ -39,8 +35,6 @@ const Write = () => {
     state?.eventenddatetime || ""
   );
 
-  // const [lat,  ] = useState(state?.lat || "");
-  // const [lng, ] = useState(state?.lng || "");
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState("state?.cat" || "Sim");
   const [alert, setAlert] = useState(false);
@@ -48,9 +42,11 @@ const Write = () => {
   const [open, setOpen] = useState(false);
   const [severity, setSeverity] = useState("info");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+
   const containerStyle = {
-    width: "400px",
-    height: "400px",
+    width: "95vw",
+    height: "55vh",
   };
 
   const center = {
@@ -153,8 +149,10 @@ const Write = () => {
               setMessage(res.data);
               setOpen(true);
               setSeverity("success");
+              // setTimeout(navigate("/"), 5000);
               console.log(res);
             });
+
       // return alert("Success")
     } catch (err) {
       setMessage(err);
@@ -166,20 +164,14 @@ const Write = () => {
 
   return (
     <div className="add">
+      <div className="blur"></div>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity={severity}>
           {message}
         </Alert>
       </Snackbar>
-      <div className="content">
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            paddingTop: "25px",
-            paddingBottom: "25px",
-          }}
-        >
+      <Grid container spacing={3} className="gridApp">
+        <Grid xs={12}>
           <FormControl fullWidth sx={{ s: 1 }} variant="standard">
             <InputLabel htmlFor="title">Wedding Title</InputLabel>
             <Input
@@ -189,6 +181,8 @@ const Write = () => {
               onChange={(e) => setTitle(e.target.value)}
             />
           </FormControl>
+        </Grid>
+        <Grid xs={6}>
           <FormControl fullWidth sx={{ s: 1 }} variant="standard">
             <InputLabel htmlFor="gname">Groom Name</InputLabel>
             <Input
@@ -198,6 +192,8 @@ const Write = () => {
               onChange={(e) => setGname(e.target.value)}
             />
           </FormControl>
+        </Grid>
+        <Grid xs={6}>
           <FormControl fullWidth sx={{ s: 1 }} variant="standard">
             <InputLabel htmlFor="bname">Bride's Name</InputLabel>
             <Input
@@ -207,6 +203,8 @@ const Write = () => {
               onChange={(e) => setBname(e.target.value)}
             />
           </FormControl>
+        </Grid>
+        <Grid xs={12}>
           <FormControl fullWidth sx={{ s: 1 }} variant="standard">
             <InputLabel htmlFor="gaddress">Groom's Address</InputLabel>
             <Input
@@ -216,6 +214,8 @@ const Write = () => {
               onChange={(e) => setGaddress(e.target.value)}
             />
           </FormControl>
+        </Grid>
+        <Grid xs={12}>
           <FormControl fullWidth sx={{ s: 1 }} variant="standard">
             <InputLabel htmlFor="baddress">Bride's Address</InputLabel>
             <Input
@@ -225,6 +225,9 @@ const Write = () => {
               onChange={(e) => setBaddress(e.target.value)}
             />
           </FormControl>
+        </Grid>
+
+        <Grid xs={6}>
           <FormControl fullWidth sx={{ s: 1 }} variant="standard">
             <InputLabel htmlFor="venue">Venue</InputLabel>
             <Input
@@ -234,20 +237,19 @@ const Write = () => {
               onChange={(e) => setVenue(e.target.value)}
             />
           </FormControl>
+        </Grid>
+        <Grid xs={3}>
           <FormControl fullWidth sx={{ s: 1 }} variant="standard">
-            <InputLabel htmlFor="eventstartdatetime">
-              Event Start Date
-            </InputLabel>
             <Input
               id="eventstartdatetime"
-              label="Next appointment"
               type="datetime-local"
               value={eventstartdatetime}
               onChange={(e) => setEventstartdatetime(e.target.value)}
             />
           </FormControl>
+        </Grid>
+        <Grid xs={3} className="gridUp1">
           <FormControl fullWidth sx={{ s: 1 }} variant="standard">
-            <InputLabel htmlFor="eventenddatetime">Event End Date</InputLabel>
             <Input
               id="eventenddatetime"
               type="datetime-local"
@@ -255,18 +257,28 @@ const Write = () => {
               onChange={(e) => setEventenddatetime(e.target.value)}
             />
           </FormControl>
-        </Box>
-        <div className="editorContainer">
-          <ReactQuill theme="snow" value={value} onChange={setValue} />
-        </div>
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            paddingTop: "25px",
-            paddingBottom: "25px",
-          }}
-        >
+        </Grid>
+        <Grid xs={12} sx={{ paddingTop: "2%", paddingLeft: "2%" }}>
+          <LoadScript googleMapsApiKey={apiKey}>
+            <GoogleMap
+              mapContainerStyle={containerStyle}
+              center={position}
+              zoom={15}
+              options={mapOptions}
+              onClick={handleMapClick}
+            >
+              {marker && <Marker position={marker} />}
+            </GoogleMap>
+            {/* {marker && <button onClick={handleSaveClick}>Save Location</button>} */}
+          </LoadScript>
+        </Grid>
+
+        <Grid xs={12} sx={{ paddingTop: "2%" }}>
+          <div className="editorContainer">
+            <ReactQuill theme="snow" value={value} onChange={setValue} />
+          </div>
+        </Grid>
+        <Grid xs={6}>
           <FormControl fullWidth sx={{ s: 1 }} variant="standard">
             <InputLabel htmlFor="contact">Contact</InputLabel>
             <Input
@@ -276,6 +288,8 @@ const Write = () => {
               onChange={(e) => setContact(e.target.value)}
             />
           </FormControl>
+        </Grid>
+        <Grid xs={6}>
           <FormControl fullWidth sx={{ s: 1 }} variant="standard">
             <InputLabel htmlFor="email">Email ID</InputLabel>
             <Input
@@ -286,104 +300,24 @@ const Write = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </FormControl>
-        </Box>
-        {/* <input
-          type="text"
-          value={title}
-          placeholder="Wedding Title or Quote"
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          value={gname}
-          placeholder="Grooms Name"
-          onChange={(e) => setGname(e.target.value)}
-        />
-        <input
-          type="text"
-          value={bname}
-          placeholder="Brides Name"
-          onChange={(e) => setBname(e.target.value)}
-        />
-        <input
-          type="text"
-          value={gaddress}
-          placeholder="Groom Address"
-          onChange={(e) => setGaddress(e.target.value)}
-        />{" "}
-        <input
-          type="text"
-          value={bname}
-          placeholder="Brides Name"
-          onChange={(e) => setBname(e.target.value)}
-        />
-        <input
-          type="text"
-          value={baddress}
-          placeholder="Brides Address"
-          onChange={(e) => setBaddress(e.target.value)}
-        />
-        <input
-          type="text"
-          value={venue}
-          placeholder="Venue "
-          onChange={(e) => setVenue(e.target.value)}
-        />
-        <input
-          type="text"
-          value={contact}
-          placeholder="Telephone or Mobile Number"
-          onChange={(e) => setContact(e.target.value)}
-        />
-        <input
-          type="datetime-local"
-          value={eventstartdatetime}
-          onChange={(e) => setEventstartdatetime(e.target.value)}
-        />
-        <input
-          type="datetime-local"
-          value={eventenddatetime}
-          onChange={(e) => setEventenddatetime(e.target.value)}
-        />
-        <input
-          type="email"
-          value={email}
-          placeholder="E - Mail"
-          onChange={(e) => setEmail(e.target.value)}
-        /> */}
-      </div>
-      <div></div>
-      <div className="menu">
-        <div className="item">
-          <h1>Publish</h1>
-          <span> Status: Draft</span>
-          <span> Visibility: Public</span>
-          <input
-            style={{ display: "none" }}
-            type="file"
-            id="file"
-            name=""
-            onChange={(e) => setFile(e.target.files[0])}
-          />
-          <label htmlFor="file">Upload Image</label>
-          <div className="buttons">
-            <button>Save as a Draft</button>
-            <button onClick={handleClick}>Publish</button>
-          </div>
-        </div>
-        <LoadScript googleMapsApiKey={apiKey}>
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={position}
-            zoom={15}
-            options={mapOptions}
-            onClick={handleMapClick}
+        </Grid>
+        <Grid xs={12} sx={{ paddingTop: "2%" }}>
+          <Button
+            size="medium"
+            variant="outlined"
+            fullWidth="true"
+            sx={{ width: 600 }}
+            endIcon={<SendIcon />}
+            onClick={handleClick}
           >
-            {marker && <Marker position={marker} />}
-          </GoogleMap>
-          {marker && <button onClick={handleSaveClick}>Save Location</button>}
-        </LoadScript>
-      </div>
+            Publish
+          </Button>
+        </Grid>
+      </Grid>
+
+      {/* <div className="buttons">
+        <button onClick={handleClick}>Publish</button>
+      </div> */}
     </div>
   );
 };

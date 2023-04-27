@@ -1,0 +1,33 @@
+.blur {
+  background: url("../assets/single.svg");
+  background-size: cover;
+  background-repeat: repeat-y;
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(1.5px);
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.invite {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.inviteLow {
+  padding-top: 2%;
+  padding-left: 2%;
+}
+
+.author {
+  padding-top: 0.1%;
+}
+
+.qrButton {
+  padding-top: 2%;
+  margin-left: -5vmin;
+}

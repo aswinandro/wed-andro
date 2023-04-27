@@ -1,46 +1,67 @@
-.appBg{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background: url(../assets/bg1.jpg);   
-    background-size: cover;
-    transform: scale(1.1);    
-    z-index: -1;
+.appBg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: url(../assets/an.jpg);
+  background-size: cover;
+  transform: scale(1.1);
+  z-index: -1;
 }
 
-.appBg.image{
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
+.appBg.image {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
 }
 
-.loginForm{
-    background-color: rgba(255, 255, 255, 0.33);
-    box-shadow: 0px 16px 32px 0 rgba(211, 40, 68, 0.33);
-    backdrop-filter: blur(2px);
-    padding: 0px 16px 16px 16px;
-    border-radius: 16px;
+.loginForm {
+  background-color: rgba(255, 255, 255, 0.33);
+  box-shadow: 3px 16px 32px 0 rgba(128, 25, 175, 0.33);
+  backdrop-filter: blur(2px);
+  padding: 0px 16px 16px 16px;
+  border-radius: 16px;
 }
 
-.socialLogin{
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    color: white;
-    font-size: 24px;
-
-}.socialIcon{
-    cursor: pointer;
+.socialLogin {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  color: white;
+  font-size: 24px;
+}
+.socialIcon {
+  cursor: pointer;
 }
 
-.titleHead{
-    text-align: center;   
-    text-decoration: wavy;
-    font-size: 24px;
+.titleHead {
+  text-align: center;
+  text-decoration: wavy;
+  font-size: 24px;
 }
 
-.para{
-    text-align: center;
-    color: red;
+.para {
+  text-align: center;
+  color: red;
+}
+
+@-webkit-keyframes loginForm {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes loginForm {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }

@@ -22,7 +22,7 @@ export const TimelineChk = () => {
           variant="body2"
           color="text.secondary"
         >
-          9:30 am
+          First Step
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineConnector />
@@ -44,7 +44,7 @@ export const TimelineChk = () => {
           variant="body2"
           color="text.secondary"
         >
-          10:00 am
+          Do it with Love
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineConnector />
@@ -72,7 +72,7 @@ export const TimelineChk = () => {
           <Typography variant="h6" component="span">
             Edit
           </Typography>
-          <Typography>Because you need rest</Typography>
+          <Typography>On the Fly Invitation</Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
